@@ -5,36 +5,49 @@
 
 # Usege
 
-```shell
-npm install https://github.com/fulsun/hexo-asset-image-master.git --save
-```
+1. 配置
+
+   `_config.yml`配置文件中设置`post_asset_folder: true` 
+
+2. 添加依赖
+
+   ```sh
+   npm install https://github.com/fulsun/hexo-asset-image-master.git --save
+   npm install hexo-abbrlink --save
+   ```
+
+3. 指定文章链接
+
+   ```sh
+   root: /
+   permalink: posts/:abbrlink.html
+   pretty_urls:
+     trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
+     trailing_html: false # Set to false to remove trailing '.html' from permalinks
+   
+   abbrlink:
+     alg: crc32  # 算法：crc16(default) and crc32
+     rep: hex    # 进制：dec(default) and hex
+   ```
+
+   
 
 # Example
 
-> 同时使用hexo-abbrlink
+- 目录结构
 
-```yaml
-root: /
-permalink: posts/:abbrlink.html
-abbrlink:
-  alg: crc32  # 算法：crc16(default) and crc32
-  rep: hex    # 进制：dec(default) and hex
-```
+  ```sh
+  test
+  ├── logo.jpg
+  └── rules.jpg
+  test.md
+  ```
 
-> 目录结构
+- markdown中的用法,在typora中也能查看图片
 
-```shell
-test
-├── logo.jpg
-└── rules.jpg
-test.md
-```
+  ```sh
+  ![logo](test/logo.jpg)
+  ```
 
-> 用法
-
-Make sure `post_asset_folder: true` in your `_config.yml`.
-
-```sh
-![logo](test/logo.jpg)
-```
+  
 

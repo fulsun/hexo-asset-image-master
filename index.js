@@ -21,7 +21,7 @@ hexo.extend.filter.register('after_post_render', function(data){
       var endPos = link.lastIndexOf('/');
     }
     else {
-      var endPos = link.length-1; 
+      var endPos = link.length; 
     }
     link = link.substring(beginPos, endPos) + '/' + appendLink;
 
